@@ -85,7 +85,7 @@
 
 
 
-[修正自：你写过最动人的情书是怎样的？      -叔离](https://www.zhihu.com/question/23114749/answer/34750671)
+###### [修正自：你写过最动人的情书是怎样的？      -叔离](https://www.zhihu.com/question/23114749/answer/34750671)
 
 
 ---

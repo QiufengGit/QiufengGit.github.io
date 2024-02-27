@@ -766,7 +766,7 @@ int main(){
 
 &gt;存在内存浪费，但算法题中不考虑
 
-![image-20240227145038811](./assets/image-20240227145038811.png)
+![image-20240227145038811](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240227145038811.png)
 
 ~~~c&#43;&#43;
 #include&lt;iostream&gt;
@@ -932,9 +932,9 @@ void remove(int k){
 
 ```
 
-![image-20240227153430787](./assets/image-20240227153430787.png)
+![image-20240227153430787](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240227153430787.png)
 
-![image-20240227153930210](./assets/image-20240227153930210.png)
+![image-20240227153930210](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240227153930210.png)
 
 ## 栈与队列
 
@@ -1051,7 +1051,7 @@ for (int i = 0; i &lt; n; i &#43;&#43; )
 
 [AcWing 831. KMP字符串 - AcWing](https://www.acwing.com/solution/content/14666/)
 
-![image-20240227171417051](./assets/image-20240227171417051.png)
+![image-20240227171417051](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240227171417051.png)
 
 ```c&#43;&#43;
 // s[]是长文本，p[]是模式串，n是s的长度，m是p的长度

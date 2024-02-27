@@ -751,6 +751,333 @@ int main(){
 ```
 
 
+
+# 数据结构
+
+核心：数组模拟-数据结构
+
+原因：new（）动态分派操作非常慢
+
+## 链表与邻接表
+
+### 单链表
+
+- 单链表：邻接表（存储 图、树）（n个单链表）
+
+&gt;存在内存浪费，但算法题中不考虑
+
+![image-20240227145038811](./assets/image-20240227145038811.png)
+
+~~~c&#43;&#43;
+#include&lt;iostream&gt;
+using namespace std;
+
+const int N = 100010;
+//head 表示头结点是插入的第几个数据
+//e[N]表示节点的值
+//ne[N]表示节点下一个指向第几个插入的数据
+//idx表示插入到第几个数据
+int head,e[N],ne[N],idx;
+
+//初始化
+void init(){
+    head = -1;
+    idx = 0;
+}
+//向链表头插入一个数x
+void add_to_head(int x){
+    idx&#43;&#43;;
+    e[idx] = x;
+    ne[idx] = head;
+    head = idx;
+}
+//表示在第 k个插入的数后面插入一个数 x
+void add(int k,int x){
+    idx&#43;&#43;;
+    e[idx] = x;
+    ne[idx] = ne[k];
+    ne[k] = idx;
+}
+//表示删除第k个插入的数后面的数 记得考虑k=0的情况，即删除头结点
+void remove(int k){
+    if(!k) head = ne[head];
+    else ne[k] = ne[ne[k]];
+}
+
+int main(){
+    init();
+    int m;
+    cin&gt;&gt;m;
+    while(m--){
+        char op;
+        cin&gt;&gt;op;
+        if(op==&#39;H&#39;){
+            int x;
+            cin&gt;&gt;x;
+            add_to_head(x);
+        }
+        if(op==&#39;D&#39;){
+            int k;
+            cin&gt;&gt;k;
+            remove(k);
+        }
+        if(op==&#39;I&#39;){
+            int k,x;
+            cin&gt;&gt;k&gt;&gt;x;
+            add(k,x);
+        }
+    }
+    for(int i=head;i!=-1;i=ne[i]){
+        cout&lt;&lt;e[i]&lt;&lt;&#39; &#39;;
+    }
+}
+~~~
+
+第二种处理方式，注意idx&#43;&#43;位置引起的区别
+
+~~~c&#43;&#43; 
+#include&lt;iostream&gt;
+using namespace std;
+
+const int N=100010;
+int head,e[N],ne[N],idx;
+
+void init(){
+    head=-1;
+    idx=0;
+}
+
+void add_to_head(int x){
+    e[idx]=x;
+    ne[idx]=head;
+    head=idx;
+    idx&#43;&#43;;
+}
+
+void add(int k, int x){
+    e[idx]=x;
+    ne[idx]=ne[k];
+    ne[k]=idx;
+    idx&#43;&#43;;
+}
+
+void remove(int k){
+    ne[k]=ne[ne[k]]; //不能为ne[k&#43;&#43;]
+}
+
+int main(){
+     init();
+    int m;
+    cin&gt;&gt;m;
+    while(m--){
+        char op;
+        cin&gt;&gt;op;
+        if(op==&#39;H&#39;){
+            int x;
+            cin&gt;&gt;x;
+            add_to_head(x);
+        }
+        if(op==&#39;D&#39;){
+            int k;
+            cin&gt;&gt;k;
+            if(!k) head = ne[head];
+            remove(k-1);
+        }
+        if(op==&#39;I&#39;){
+            int k,x;
+            cin&gt;&gt;k&gt;&gt;x;
+            add(k-1,x);
+        }
+    }
+    for(int i=head;i!=-1;i=ne[i]){
+        cout&lt;&lt;e[i]&lt;&lt;&#39; &#39;;
+    }
+}
+~~~
+
+### 双链表
+
+- 双链表：优化某些问题
+
+```c&#43;&#43;
+#include&lt;iostream&gt;
+using namespace std;
+
+const int N=100010;
+int e[N],l[N],r[N],idx;
+
+//初始化
+void init(){
+    r[o]=1;
+    l[1]=0;
+    idx=2;//前两个节点已经使用
+}
+
+//k点右插为主所写， k点左插=add(l[k],x)
+void add(int k,int x){
+	e[idx]=x;
+    
+    r[idx]=r[k];//1
+    l[idx]=k;//2
+    
+    l[r[k]]=idx;//3
+    r[k]=idx; //4
+    //l[r[idx]]=idx; 可和3交换
+}
+//删除第k个点
+void remove(int k){
+    r[l[k]]=r[k];
+    l[r[k]]=l[k];
+}
+
+```
+
+![image-20240227153430787](./assets/image-20240227153430787.png)
+
+![image-20240227153930210](./assets/image-20240227153930210.png)
+
+## 栈与队列
+
+### 栈
+
+```c&#43;&#43;
+// tt表示栈顶
+int stk[N], tt = 0;
+
+// 向栈顶插入一个数
+stk[ &#43;&#43; tt] = x;
+
+// 从栈顶弹出一个数
+tt -- ;
+
+// 栈顶的值
+stk[tt];
+
+// 判断栈是否为空，如果 tt &gt; 0，则表示不为空
+if (tt &gt; 0)
+{
+
+}
+```
+
+### 队列
+
+普通队列
+
+```c&#43;&#43;
+// hh 表示队头，tt表示队尾
+int q[N], hh = 0, tt = -1;
+
+// 向队尾插入一个数
+q[ &#43;&#43; tt] = x;
+
+// 从队头弹出一个数
+hh &#43;&#43; ;
+
+// 队头的值
+q[hh];
+
+// 判断队列是否为空，如果 hh &lt;= tt，则表示不为空
+if (hh &lt;= tt)
+{
+
+}
+```
+
+循环队列
+
+```c&#43;&#43;
+// hh 表示队头，tt表示队尾的后一个位置
+int q[N], hh = 0, tt = 0;
+
+// 向队尾插入一个数
+q[tt &#43;&#43; ] = x;
+if (tt == N) tt = 0;
+
+// 从队头弹出一个数
+hh &#43;&#43; ;
+if (hh == N) hh = 0;
+
+// 队头的值
+q[hh];
+
+// 判断队列是否为空，如果hh != tt，则表示不为空
+if (hh != tt)
+{
+
+}
+```
+
+
+
+### 单调栈与单调队列（抽象但题型较少）
+
+**朴素做法-&gt;优化无效值-&gt;观察单调性-&gt;优化**
+
+### 单调栈
+
+严格单调
+
+强调目标：最近 且 较小
+
+&gt; 相当于“最近”指标权重更大   故逆序对or相等时 较远的元素无优势
+&gt;
+&gt; 故严格单调
+
+~~~c&#43;&#43;
+常见模型：找出每个数左边离它最近的比它大/小的数
+int tt = 0;
+for (int i = 1; i &lt;= n; i &#43;&#43; )
+{
+    while (tt &amp;&amp; check(stk[tt], i)) tt -- ;
+    stk[ &#43;&#43; tt] = i;//必须压入元素 此处&#43;&#43;tt表示栈顶&#43;1位置
+}
+~~~
+
+### 单调队列（滑动窗口）
+
+```c&#43;&#43;
+常见模型：找出滑动窗口中的最大值/最小值
+int hh = 0, tt = -1;
+for (int i = 0; i &lt; n; i &#43;&#43; )
+{
+    while (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh &#43;&#43; ;  // 判断队头是否滑出窗口
+    while (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt -- ;
+    q[ &#43;&#43; tt] = i;
+}
+```
+
+## KMP
+
+[AcWing 831. KMP字符串 - AcWing](https://www.acwing.com/solution/content/14666/)
+
+![image-20240227171417051](./assets/image-20240227171417051.png)
+
+```c&#43;&#43;
+// s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
+求模式串的Next数组：
+for (int i = 2, j = 0; i &lt;= m; i &#43;&#43; )
+{
+    while (j &amp;&amp; p[i] != p[j &#43; 1]) j = ne[j];
+    if (p[i] == p[j &#43; 1]) j &#43;&#43; ;
+    ne[i] = j;
+}
+
+// 匹配
+for (int i = 1, j = 0; i &lt;= n; i &#43;&#43; )
+{
+    while (j &amp;&amp; s[i] != p[j &#43; 1]) j = ne[j];
+    if (s[i] == p[j &#43; 1]) j &#43;&#43; ;
+    if (j == m)
+    {
+        j = ne[j];
+        // 匹配成功后的逻辑
+    }
+}
+```
+
+
+
 ---
 
 > 作者: [qiu](https://qiufenggit.github.io/)  

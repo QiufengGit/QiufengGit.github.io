@@ -1049,9 +1049,17 @@ for (int i = 0; i &lt; n; i &#43;&#43; )
 
 ## KMP
 
+核心：快速移动 · 所需匹配模板字符串 ，从而降低时间复杂度
+
+![91908708eaef29561643b407e0c7a71d](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/91908708eaef29561643b407e0c7a71d.png)
+
+![9dcbe8b7a2e43b1f39b8e676b562d2ff](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/9dcbe8b7a2e43b1f39b8e676b562d2ff.png)
+
+参考解释：
+
 [AcWing 831. KMP字符串 - AcWing](https://www.acwing.com/solution/content/14666/)
 
-![image-20240227171417051](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240227171417051.png)
+
 
 ```c&#43;&#43;
 // s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
@@ -1075,6 +1083,44 @@ for (int i = 1, j = 0; i &lt;= n; i &#43;&#43; )
     }
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

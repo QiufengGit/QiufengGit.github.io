@@ -1116,7 +1116,153 @@ for (int i = 1, j = 0; i &lt;= n; i &#43;&#43; )
 
 
 
+## Tier
 
+高效地存储和查找字符串
+
+![image-20240228221951820](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240228221951820-1709181350523-1.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 并查集
+
+集合为基本元素
+
+
+
+1、将两个集合合并
+
+2、询问两个元素是否在一个集合中
+
+
+
+近乎o(1)的时间复杂度内完成相应操作
+
+
+
+基本原理：
+
+集合用树表示
+
+根节点p[x]=x
+
+
+
+问题1：如何判断树根： p[x]==x
+
+问题2：如何求x的集合编号： while(p[x]!=x) x=p[x];
+
+问题3：如何合并两个集合：px，py两个集合编号 合并：p[x]=y即可
+
+
+
+路径压缩优化（按秩合并优化未讲--用的少）
+
+
+
+![image-20240229113513976](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240229113513976-1709181350524-2.png)
+
+
+
+
+
+scanf(&#34;s%&#34;) 扫描字符串会过滤回车，但是c%不会，因此对单个字符也可采用字符串进行处理（过滤空格和回车）（血的教训ovo）
+
+~~~c&#43;&#43;
+int find(int x) //返回x的祖宗节点&#43;路径压缩
+{
+    if(p[x]!=x)
+        p[x]=find[p[x]];
+    return p[x];
+}
+~~~
+
+
+
+```c&#43;&#43;
+#include&lt;iostream&gt;
+using namespace std;
+const int N=100010;
+int p[N],sz[N],n,m;
+
+int find(int x){//找到编号为x的数的集合编号 &#43; 路径压缩
+    if(p[x]!=x) p[x]=find(p[x])//如果该节点不是根节点则让其父节点等于根节点（递归实现路径压缩）
+    return p[x];
+}
+
+int main(){
+    scanf(&#34;%d%d&#34;,&amp;n,&amp;m);
+    for (int i=0;i&lt;n;i&#43;&#43;){
+        p[i]=i;
+        sz[i]=1;
+    }
+    while(m--){
+        char op[5];
+        int a,b;
+        scanf(&#34;%s&#34;,op);
+        if(op[0]==&#39;C&#39;){
+            scanf(&#34;%d%d&#34;,&amp;a,&amp;b);
+            if find(b)==find(a) continue;
+            sz[find(b)]&#43;=sz[find(a)];
+            p[find(a)]=find(b);//注意要在根节点的size相加之后再合并，两句话不能颠倒
+        }
+        else if(op[1] == &#39;1&#39;){
+            scanf(&#34;%d%d&#34;,&amp;a,&amp;b);
+            if(find(a)==find(b))
+                puts(&#34;Yes&#34;);
+            else
+                puts(&#34;No&#34;);
+        }
+        else{
+            scanf(&#34;%d&#34;,&amp;a);
+            printf(&#34;%d\n&#34;,sz[find(a)]);
+        }
+    }
+    return 0;
+}
+```
+
+
+
+## 堆
+
+堆：完全二叉树
+
+小根堆：每个点小于等于左右子节点（根节点为最小值）（左右叶子节点无大小关系）
+
+如何手写一个堆
+
+1、插入一个数
+
+2、求集合当中的最小值
+
+3、删除最小值
+
+stl无法实现的内容：
+
+4、删除任意元素
+
+5、修改任意元素
+
+![image-20240229123347506](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240229123347506-1709181350524-3.png)
+
+
+
+存储：一维数组
+
+根节点：1 左子节点：2x 右子节点2x&#43;1
+
+两个操作： 节点上下移动：down(x) up(x) 
 
 
 

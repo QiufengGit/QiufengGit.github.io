@@ -1,4 +1,4 @@
-# 蓝桥杯第一章笔记
+# 蓝桥杯笔记
 
 
 &lt;!--more--&gt;
@@ -1120,21 +1120,72 @@ for (int i = 1, j = 0; i &lt;= n; i &#43;&#43; )
 
 高效地存储和查找字符串
 
-![image-20240228221951820](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240228221951820-1709181350523-1.png)
+![image-20240228221951820](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240228221951820.png)
 
 
 
+## 最大异或对
 
+化简暴力搜索异或对的内层循环
 
+$C_N^2$
 
+可以：边插入边查找（）
 
+~~~c&#43;&#43;
+#include &lt;iostream&gt;
 
+uisng namespace std;
+const int N=100010,M=31*N;//M为节点个数
+int n,a[N],son[M][2],idx;
+
+void insert(int x){
+    int p=0;
+    for (int i=30;i&gt;=0;i--){
+        int u=x&gt;&gt; i &amp;1;
+        if(!son[p][u]) son[p][u]=&#43;&#43;idx;
+        p=son[p][o];
+    }
+}
+
+void query(int x){
+    int p=0, res=0;
+    for(int i=30;i&gt;=0;i--){
+        int u=x&gt;&gt;i&amp;1;
+        if(son[p][!u]) {
+            p=son[p][!u];
+            res=2*res&#43;!u;
+        }
+        else {
+            p=son[p][u];
+            res=2*res&#43;u;
+        }
+    }
+    return res;//返回值
+}
+
+int main(){
+    cin&gt;&gt;n;
+    for (int i=0;i&lt;n;i&#43;&#43;) cin&gt;&gt;a[i];
+    int res=0;
+    for(int i=0; i&lt; n; i&#43;&#43;){
+        insert(a[i]);
+        int t=auery(a[i]);
+        res=max(res,a[i]^t);
+    }
+    cout&lt;&lt;res;
+    
+    return 0;
+}
+~~~
 
 
 
 
 
 ## 并查集
+
+**集合合并**
 
 集合为基本元素
 
@@ -1170,7 +1221,7 @@ for (int i = 1, j = 0; i &lt;= n; i &#43;&#43; )
 
 
 
-![image-20240229113513976](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240229113513976-1709181350524-2.png)
+![image-20240229113513976](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240229113513976.png)
 
 
 
@@ -1234,6 +1285,34 @@ int main(){
 
 
 
+## 食物链
+
+![image-20240301220648118](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240301220648118.png)
+
+![image-20240301220713269](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240301220713269.png)
+
+![image-20240301220731077](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240301220731077.png)
+
+同于集合内 知道节点与根节点之间的距离 即知道 两节点间的相互关系（由于仅有 三种变量 故 中间变量可以传递）
+
+![image-20240301204904852](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240301204904852.png)
+
+
+
+
+
+&gt;什么时间用什么数据结构
+&gt;
+&gt;寻找最小最大值：堆
+&gt;
+&gt;维护有序列表：平衡树 site
+&gt;
+&gt;区间最大值，区间和：树状数组 线段树
+&gt;
+&gt;并查集题目：不直观、需训练
+
+
+
 ## 堆
 
 堆：完全二叉树
@@ -1254,7 +1333,7 @@ stl无法实现的内容：
 
 5、修改任意元素
 
-![image-20240229123347506](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240229123347506-1709181350524-3.png)
+![image-20240229123347506](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240229123347506.png)
 
 
 
@@ -1266,23 +1345,197 @@ stl无法实现的内容：
 
 
 
+### 堆排序
+
+### 模拟堆
+
+建堆
+
+~~~c&#43;&#43;
+for (int i=n/2;i;i--){
+    down(i);
+}
+~~~
+
+```c&#43;&#43;
+void down(int u){
+	int t=u;//t:最小值位置
+    if(2*u&lt;size &amp;&amp; p[2*u] &lt; p[t])
+        t=2*u;
+    if(2*u&#43;1&lt;size &amp;&amp; p[2*u&#43;1] &lt; p[t])
+        t=2*u&#43;1;
+    if(u!=t){
+        swap(h[u],h[t]);//根节点不是最小则交换子节点，并从子节点向下down
+        down(t);
+    }
+}
+```
+
+~~~c&#43;&#43;
+void up(int u){
+	while(u/2&amp;&amp;h[u/2] &gt; h[u]){
+        swap(h[u/2],h[u]);
+    	u/=2;
+    }
+}
+~~~
+
+```c&#43;&#43;
+void heat_swap(int a,int b){
+	swap(ph[hp[a]],ph[hp[b]]);//hp:堆到第k个插入的数 ph:第k个插入的数到堆 pointer-heap=ph
+    swap(hp[a],hp[b]);
+    swap(h[a],h[b]);
+}
+```
 
 
 
 
 
+## 哈希表与STL简介
+
+队列、优先队列
+
+
+
+### 哈希表
+
+- 存储结构
+
+  ​	开放寻址
+
+  ​	拉链法
+
+- 字符串的哈希方式
+
+
+
+作用：大数据映射小范围
+
+
+
+考虑问题：
+
+1、一般可取模 缩小
+
+2、映射应该一对一
+
+3、按照处理冲突（一对多映射）方式，可以分为两种方法：开放寻址发与拉链法
+
+
+
+#### 拉链法
+
+哈希表算法题中一般只有：插入 查询两种操作，删除操作（假删除，开一个标记，标记其无用即可）
+
+![image-20240302112931814](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240302112931814.png)
+
+
+
+![image-20240302114904162](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240302114904162.png)
+
+样本空间缩小，碰撞概率上升
+
+```c&#43;&#43;
+// C&#43;&#43; Version
+const int N = 1e5 &#43; 10;
+int h[N], e[N], ne[N], idx;
+
+void insert(int x) {
+    int k = (x % N &#43; N) % N;  // 把负数也映射为正数。—— c&#43;&#43; 中负数 mod 正数还是负数
+    e[idx] = x, ne[idx] = h[k], h[k] = idx&#43;&#43;;  // 链表头插
+}
+
+bool find(int x) {
+    int k = (x % N &#43; N) % N;
+    for(int i = h[k]; ~i; i = ne[i])  // 链表查询遍历
+        if(e[i] == x) return true;
+    return false;
+}
+```
 
 
 
 
 
+#### 开放寻址法
+
+开数组长度为数据的2-3倍（经验值，冲突概率较低）
+
+```c&#43;&#43;
+// C&#43;&#43; Version
+const int N = 3e5 &#43; 10;
+const int null = 0x3f3f3f3f; // 正无穷表示不存在目标数。—— memset(h, 0x3f, sizeof h);
+int h[N];
+
+int find(int x) {
+    int k = (x % N &#43; N) % N;
+    while (h[k] != null &amp;&amp; h[k] != x) { // 说明当前位置有值，但是不是目标值。
+        k &#43;&#43; ;
+        if (k == N) k = 0;  // 如果走到末尾，则从头再找
+        //  该过程一定会停止，因为总共的空位比总的数的个数多。
+    }
+    return k;	//返回值为：1. 插入位置  2. 查找到x的对应位置
+}
+```
+
+memset: 按字节set
 
 
 
 
 
+### 字符串哈希方式
+
+字符串前缀哈希法
+
+![image-20240302123017598](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240302123017598.png)
+
+99.99%的概率下，不会发生冲突。
+
+![image-20240302123228965](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240302123228965.png)
 
 
+
+```c&#43;&#43;
+#include &lt;iostream&gt;
+using namespace std;
+
+typedef unsigned long long ULL;
+
+const int N=100010,p=131;
+
+int n.m;
+char str[N];
+ULL h[N],p[N];
+
+//l-r区间内字符串
+ULL get(int l,int r){
+    return h[r]-h[l-1]*p[r-l&#43;1];
+}
+
+int main(){
+    sacnf(&#34;%d%d%s&#34;,&amp;n,&amp;m,str&#43;1);
+    
+    p[0]=1;
+    for(int i=1;i&lt;=n;i&#43;&#43;){
+        p[i]=p*p[i - 1];
+        h[i]=h[i - 1]*p&#43;str[i];
+    }
+    
+}
+
+
+
+```
+
+
+
+
+
+## STL
+
+![image-20240302125018765](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240302125018765.png)
 
 
 

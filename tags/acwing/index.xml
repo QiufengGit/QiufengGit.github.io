@@ -3,7 +3,15 @@
     <title>acwing - 标签 - 湫的小站</title>
     <link>http://localhost:1313/tags/acwing/</link>
     <description>acwing - 标签 | 湫的小站</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 26 Feb 2024 10:27:04 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/acwing/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 04 Mar 2024 00:11:13 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/acwing/" rel="self" type="application/rss+xml" /><item>
+  <title>蓝桥杯笔记2</title>
+  <link>http://localhost:1313/posts/466bc94/</link>
+  <pubDate>Mon, 04 Mar 2024 00:11:13 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://localhost:1313/posts/466bc94/</guid>
+  <description><![CDATA[<p>蓝桥杯算法基础课第三章笔记</p>]]></description>
+</item>
+<item>
   <title>蓝桥杯笔记</title>
   <link>http://localhost:1313/posts/565a60b/</link>
   <pubDate>Mon, 26 Feb 2024 10:27:04 &#43;0800</pubDate>

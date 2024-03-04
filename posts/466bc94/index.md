@@ -239,6 +239,99 @@ int main(){
 
 ## 树与图的遍历：拓扑排序
 
+有向图
+
+邻接矩阵：时间复杂度 n^2
+
+邻接表：
+
+
+
+## 例：树的重心
+
+```c&#43;&#43;
+ #inlcude &lt;iostream&gt;
+const int N = 100010,M = N * 2;
+int h[N], e[N], ne[N], idx;
+bool st[N];//只遍历一次
+
+int ans=N;
+
+int n;
+
+void add(int a, int b)
+{
+    e[idx]=b;
+    ne[idx]=h[a];
+    h[a]=idx&#43;&#43;;
+  
+}
+
+int dfs(int u)
+{
+    st[u]=true; //标记
+    
+    int sum=1, res=0;
+    for (int i = h[u]; i!=-1; i=ne[i])
+    {
+        int j = e[i];
+        if(!st[j])
+        {
+            int s = dfs[j];
+            res = max(res, s);
+            sum &#43;= s; 
+        }
+    }
+    
+    res = max(res, n-sum);
+    
+    ans = min(ans, res);
+    
+    return sum;
+}
+
+int main()
+{
+    cin&gt;&gt;n;
+    memset(h,-1, sizeof(h))
+    
+    for (int i=0; i&lt;n-1; i&#43;&#43;)\
+    {
+        int a,b;
+        cin &gt;&gt;a &gt;&gt;b;
+        add(a,b), add(b,a);
+    }
+        
+    dfs(1);    
+    
+    cout &lt;&lt; ans &lt;&lt; endl;
+    
+    return 0;
+}
+
+```
+
+
+
+## 例：图中点的层次
+
+
+
+## 拓扑序列（前后顺序 指向性 不变）
+
+
+
+**有向无环图：拓扑图**
+
+**入度：几边 进**
+
+**出度：几边 出**
+
+
+
+入度为0：起点
+
+![image-20240304231841923](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240304231841923.png)
 
 
 ---

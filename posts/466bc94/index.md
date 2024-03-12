@@ -334,6 +334,74 @@ int main()
 ![image-20240304231841923](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240304231841923.png)
 
 
+
+
+
+## Dijkstra算法
+
+
+
+图论侧重：抽象
+
+
+
+最短路算法的关键不是 检验算法的正确性
+
+而是考虑如何把问题 建图 并抽象为 最短路问题
+
+![image-20240312154844582](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312154844582.png)
+
+
+
+比较使用
+
+ n为点数 m为边数
+
+
+
+![image-20240312155103619](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312155103619.png)
+
+
+
+### 朴素Dijkstra（一个点到其余点的最短距离
+
+![image-20240312161328594](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312161328594.png)
+
+有向图与无向图
+
+稠密图：邻接矩阵
+
+代码过时引起的代码过程，算法竞赛中代码短而有效
+
+![image-20240312161031117](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312161031117.png)
+
+![image-20240312161309070](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312161309070.png)
+
+
+
+
+
+### 堆优化
+
+![image-20240312161542383](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312161542383.png)
+
+堆中修改一个数的
+
+![image-20240312161812620](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312161812620.png)
+
+
+
+![image-20240312162012858](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312162012858.png)
+
+![image-20240312162712404](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312162712404.png)
+
+i = h[ver]
+
+![image-20240312163051022](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312163051022.png)
+
+![image-20240312162914258](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312162914258.png)
+
+
 ---
 
 > 作者: [qiu](https://qiufenggit.github.io/)  

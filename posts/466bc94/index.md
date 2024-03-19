@@ -402,6 +402,48 @@ i = h[ver]
 ![image-20240312162914258](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240312162914258.png)
 
 
+
+## Bellman-Ford
+
+![image-20240319150353079](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240319150353079.png)
+
+有负权回路时，最短路不一定存在
+
+n次可以找 “负环”
+
+一般情况下不如：SPFA算法
+
+SPFA算法要求：不含负环
+
+
+
+为了避免”串联“问题，需”备份“
+
+![image-20240319152630140](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240319152630140.png)
+
+
+
+
+
+## SPFA
+
+使用队列优化Bellman-Ford求解优化过程：
+
+![image-20240319153207866](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240319153207866.png)
+
+队列：
+
+![image-20240319153142126](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240319153142126.png)
+
+判断负环：
+
+![image-20240319153849373](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240319153849373.png)
+
+## Floyd
+
+![image-20240319154819476](https://qiu-media.oss-cn-wuhan-lr.aliyuncs.com/img/image-20240319154819476.png)
+
+
 ---
 
 > 作者: [qiu](https://qiufenggit.github.io/)  

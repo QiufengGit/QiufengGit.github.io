@@ -2,13 +2,13 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>http://localhost:1313/categories/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-      <loc>http://localhost:1313/tags/draft/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-      <loc>http://localhost:1313/categories/draft/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-      <loc>http://localhost:1313/posts/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-      <loc>http://localhost:1313/tags/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-      <loc>http://localhost:1313/posts/52b4740/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-      <loc>http://localhost:1313/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+      <loc>http://localhost:1313/categories/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>http://localhost:1313/tags/draft/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>http://localhost:1313/categories/draft/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>http://localhost:1313/posts/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>http://localhost:1313/tags/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>http://localhost:1313/posts/52b4740/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>http://localhost:1313/</loc><lastmod>2024-03-08T14:30:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>http://localhost:1313/tags/acwing/</loc><lastmod>2024-03-04T00:11:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>http://localhost:1313/categories/acwing/</loc><lastmod>2024-03-04T00:11:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>http://localhost:1313/posts/466bc94/</loc><lastmod>2024-03-04T00:11:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>

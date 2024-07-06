@@ -3,7 +3,15 @@
     <title>所有文章 - 湫的小站</title>
     <link>http://localhost:1313/posts/</link>
     <description>所有文章 | 湫的小站</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 08 Mar 2024 14:30:27 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 07 Jul 2024 00:26:23 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Sumercamp</title>
+  <link>http://localhost:1313/posts/689dedf/</link>
+  <pubDate>Sun, 07 Jul 2024 00:26:23 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://localhost:1313/posts/689dedf/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Whu_tanhua</title>
   <link>http://localhost:1313/posts/52b4740/</link>
   <pubDate>Fri, 08 Mar 2024 14:30:27 &#43;0800</pubDate>
@@ -103,15 +111,6 @@
 ​	1）反映“到底是一个什么样的工作”
 ​	句式： for……
 ​	2）包含核心技术]]></description>
-</item>
-<item>
-  <title>Decoding Lab: Understanding a Secret Message解答（未完待续）</title>
-  <link>http://localhost:1313/posts/process/</link>
-  <pubDate>Thu, 30 Mar 2023 20:00:00 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://localhost:1313/posts/process/</guid>
-  <description><![CDATA[<p>Decoding Lab: Understanding a Secret Message分析解答</p>
-<p>未完待续</p>]]></description>
 </item>
 </channel>
 </rss>
